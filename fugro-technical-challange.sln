@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fugro-technical-challange.AppHost", "fugro-technical-challange.AppHost\fugro-technical-challange.AppHost.csproj", "{4D1ACF92-FDF5-44E1-96D4-94F9F151F5D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fugro-technical-challange.ServiceDefaults", "fugro-technical-challange.ServiceDefaults\fugro-technical-challange.ServiceDefaults.csproj", "{927BF2C8-40CC-490A-97F4-A5D02672264B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fugro-technical-challange.ApiService", "fugro-technical-challange.ApiService\fugro-technical-challange.ApiService.csproj", "{80D9F552-FD44-404E-BE65-E7509EA59490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fugro-technical-challange.Web", "fugro-technical-challange.Web\fugro-technical-challange.Web.csproj", "{740B993C-83E3-4915-A7E7-20E171F5D204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fugro-technical-challange.Tests", "fugro-technical-challange.Tests\fugro-technical-challange.Tests.csproj", "{C7293B69-E3F7-4A02-AE4E-87C849C96551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D1ACF92-FDF5-44E1-96D4-94F9F151F5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1ACF92-FDF5-44E1-96D4-94F9F151F5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1ACF92-FDF5-44E1-96D4-94F9F151F5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1ACF92-FDF5-44E1-96D4-94F9F151F5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927BF2C8-40CC-490A-97F4-A5D02672264B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927BF2C8-40CC-490A-97F4-A5D02672264B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927BF2C8-40CC-490A-97F4-A5D02672264B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927BF2C8-40CC-490A-97F4-A5D02672264B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D9F552-FD44-404E-BE65-E7509EA59490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D9F552-FD44-404E-BE65-E7509EA59490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D9F552-FD44-404E-BE65-E7509EA59490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D9F552-FD44-404E-BE65-E7509EA59490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740B993C-83E3-4915-A7E7-20E171F5D204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740B993C-83E3-4915-A7E7-20E171F5D204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740B993C-83E3-4915-A7E7-20E171F5D204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740B993C-83E3-4915-A7E7-20E171F5D204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7293B69-E3F7-4A02-AE4E-87C849C96551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7293B69-E3F7-4A02-AE4E-87C849C96551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7293B69-E3F7-4A02-AE4E-87C849C96551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7293B69-E3F7-4A02-AE4E-87C849C96551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
