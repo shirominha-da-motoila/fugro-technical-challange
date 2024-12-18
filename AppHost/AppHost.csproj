@@ -12,8 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\fugro-technical-challange.ApiService\ApiService.csproj" />
-    <ProjectReference Include="..\fugro-technical-challange.Web\Web.csproj" />
+    <ProjectReference Include="..\ApiService\ApiService.csproj" />
+    <ProjectReference Include="..\Web\Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
