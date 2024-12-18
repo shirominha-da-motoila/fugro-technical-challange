@@ -1,4 +1,4 @@
-namespace Domain;
+namespace ApiService.Domain;
 
 class Polyline(ICollection<(double, double)> values)
 {

@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\fugro-technical-challange.ServiceDefaults\fugro-technical-challange.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\fugro-technical-challange.ServiceDefaults\ServiceDefaults.csproj" />
+    <ProjectReference Include="..\Modules\Modules.csproj" />
   </ItemGroup>
 
 </Project>

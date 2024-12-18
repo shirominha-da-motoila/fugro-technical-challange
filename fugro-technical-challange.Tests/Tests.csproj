@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\fugro-technical-challange.AppHost\fugro-technical-challange.AppHost.csproj" />
+    <ProjectReference Include="..\fugro-technical-challange.AppHost\AppHost.csproj" />
   </ItemGroup>
 
   <ItemGroup>

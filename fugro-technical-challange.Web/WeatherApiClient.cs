@@ -1,4 +1,6 @@
-namespace fugro_technical_challange.Web;
+using Modules.CalculateOffsetAndStation;
+
+namespace Web;
 
 public class ApiClient(HttpClient httpClient)
 {
@@ -9,14 +11,4 @@ public class ApiClient(HttpClient httpClient)
 
         return output;
     }
-}
-
-public record CalculateOffsetAndStationInput(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
-
-public record CalculateOffsetAndStationOutput(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }

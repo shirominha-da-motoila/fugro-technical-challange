@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Domain;
+namespace ApiService.Domain;
 
 [method: SetsRequiredMembers]
 public class Line(Segment segment)
@@ -14,14 +14,14 @@ public class Line(Segment segment)
     public double DistanceToPoint(Point point)
     {
 
-        var numerator = Math.Abs(this.A * point.X + this.B * point.Y + this.C);
-        var denominator = Math.Sqrt(Math.Pow(this.A, 2) + Math.Pow(this.B, 2));
+        var numerator = Math.Abs(A * point.X + B * point.Y + C);
+        var denominator = Math.Sqrt(Math.Pow(A, 2) + Math.Pow(B, 2));
 
-        return numerator/denominator;
+        return numerator / denominator;
     }
 
     public bool Contains(Point point)
     {
-        return this.A * point.X + this.B * point.Y + this.C == 0;
+        return A * point.X + B * point.Y + C == 0;
     }
 }

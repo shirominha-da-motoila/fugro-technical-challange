@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Domain.Utils;
+using ApiService.Domain.Utils;
 
-namespace Domain;
+namespace ApiService.Domain;
 
 public class Segment
 {
@@ -13,9 +13,9 @@ public class Segment
             throw new InvalidOperationException("Segment points can't be equal");
         }
 
-        this.Start = start;
-        this.End = end;
-        this.Line = new Line(this);
+        Start = start;
+        End = end;
+        Line = new Line(this);
     }
 
     public required Point Start { get; init; }
@@ -24,13 +24,13 @@ public class Segment
 
     public required Line Line { get; init; }
 
-    public double YVar => this.End.Y - this.Start.Y;
+    public double YVar => End.Y - Start.Y;
 
-    public double XVar => this.End.X - this.Start.X;
+    public double XVar => End.X - Start.X;
 
     public bool Contains(Point point)
     {
-        if (!this.Line.Contains(point))
+        if (!Line.Contains(point))
         {
             return false;
         }

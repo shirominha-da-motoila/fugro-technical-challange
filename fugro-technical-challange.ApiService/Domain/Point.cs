@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Domain;
+namespace ApiService.Domain;
 
-[method:SetsRequiredMembers]
+[method: SetsRequiredMembers]
 public class Point(double x, double y) : IEquatable<Point>
 {
     public required double X { get; init; } = x;
@@ -11,7 +11,7 @@ public class Point(double x, double y) : IEquatable<Point>
 
     public bool Equals(Point? other)
     {
-        return other is not null && this.X == other.X && this.Y == other.Y;
+        return other is not null && X == other.X && Y == other.Y;
     }
 
     public override bool Equals(object? obj)
@@ -21,6 +21,6 @@ public class Point(double x, double y) : IEquatable<Point>
 
     public override int GetHashCode()
     {
-        return this.X.GetHashCode() + this.Y.GetHashCode();
+        return X.GetHashCode() + Y.GetHashCode();
     }
 }

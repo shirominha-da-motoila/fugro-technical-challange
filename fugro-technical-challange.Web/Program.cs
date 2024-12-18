@@ -1,5 +1,5 @@
-using fugro_technical_challange.Web;
-using fugro_technical_challange.Web.Components;
+using Web;
+using Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddOutputCache();
 
-builder.Services.AddHttpClient<WeatherApiClient>(client =>
+builder.Services.AddHttpClient<ApiClient>(client =>
     {
         // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
         // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.

@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-
 namespace Modules.CalculateOffsetAndStation;
-
-
 
 public class CalculateOffsetAndStationInput
 {

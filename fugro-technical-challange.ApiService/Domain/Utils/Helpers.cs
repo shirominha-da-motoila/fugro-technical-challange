@@ -1,4 +1,4 @@
-namespace Domain.Utils;
+namespace ApiService.Domain.Utils;
 
 public static class Helpers
 {
