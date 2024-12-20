@@ -13,6 +13,8 @@
 5. Run the application:
 `dotnet run --project AppHost`
 
+6. Follow the URL at the console to access the AppHost hub.
+
 ## Challange Walkthrought and Decisions
 ### Tech-Stack
 In this challange, I've focused on having a great time with it. Due to the freedom to choose the technology stack, I ended up with two different ones:
