@@ -1,3 +1,4 @@
+using ApiService.Domain;
 using Modules.CalculateOffsetAndStation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,14 +14,15 @@ app.UseSwaggerUI();
 
 app.MapPost("/CalculateOffsetAndStation", (CalculateOffsetAndStationInput input) =>
 {
+    var polyline = new Polyline(input.Polyline);
+    var (pointX, pointY) = input.Point;
+    var point = new Point(pointX, pointY);
+    var (offset, station) = polyline.CalculateOffsetAndStation(point);
+
     return new CalculateOffsetAndStationOutput
     {
-        Offset = 1,
-        Station = new PointDto
-        {
-            X = 1,
-            Y = 2,
-        },
+        Offset = offset,
+        Station = station,
     };
 })
 .WithName("CalculateOffsetAndStation")
