@@ -3,11 +3,11 @@ using System.Diagnostics.CodeAnalysis;
 namespace ApiService.Domain;
 
 [method: SetsRequiredMembers]
-public class Polyline(IEnumerable<(double, double)> values)
+public class Polyline(IEnumerable<Point> values)
 {
     public required LinkedList<Point> Points { get; init; } = new LinkedList<Point>
     (
-        values.Select((value) => new Point(value.Item1, value.Item2))
+        values.Select((value) => new Point(value.X, value.Y))
     );
 
     public (double, double) CalculateOffsetAndStation(Point point)

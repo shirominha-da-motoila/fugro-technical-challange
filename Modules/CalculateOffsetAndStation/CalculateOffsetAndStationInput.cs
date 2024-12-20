@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Modules.CalculateOffsetAndStation;
 
 public class CalculateOffsetAndStationInput
 {
-    public required IEnumerable<(double, double)> Polyline { get; init; }
+    [Required]
+    public IEnumerable<PointDto> Polyline { get; set; } = new List<PointDto>();
 
-    public required (double, double) Point { get; init; }
+    [Required]
+    public PointDto Point { get; set; } = new PointDto();
 }

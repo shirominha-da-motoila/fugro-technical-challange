@@ -79,6 +79,6 @@ public class PolylineTests
 
     private static Polyline CreatePolyline(IEnumerable<(double, double)> points)
     {
-        return new Polyline(points);
+        return new Polyline(points.Select(p => new Point(p.Item1, p.Item2)));
     }
 }

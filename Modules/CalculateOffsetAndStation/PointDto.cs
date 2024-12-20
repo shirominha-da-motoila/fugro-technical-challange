@@ -1,8 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Modules.CalculateOffsetAndStation;
 
 public class PointDto
 {
-    public required double X { get; init; }
+    [Required]
+    public double X { get; set; }
 
-    public required double Y { get; init; }
+    [Required]
+    public double Y { get; set; }
 }

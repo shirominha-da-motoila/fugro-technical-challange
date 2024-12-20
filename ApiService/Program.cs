@@ -14,9 +14,8 @@ app.UseSwaggerUI();
 
 app.MapPost("/CalculateOffsetAndStation", (CalculateOffsetAndStationInput input) =>
 {
-    var polyline = new Polyline(input.Polyline);
-    var (pointX, pointY) = input.Point;
-    var point = new Point(pointX, pointY);
+    var polyline = new Polyline(input.Polyline.Select(p => new Point(p.X, p.Y)));
+    var point = new Point(input.Point.X, input.Point.Y);
     var (offset, station) = polyline.CalculateOffsetAndStation(point);
 
     return new CalculateOffsetAndStationOutput
