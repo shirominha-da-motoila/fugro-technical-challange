@@ -21,6 +21,14 @@ public class Point(double x, double y) : IEquatable<Point>
 
     public override int GetHashCode()
     {
-        return X.GetHashCode() + Y.GetHashCode();
+        return X.GetHashCode() * 2 + Y.GetHashCode();
+    }
+
+    public double DistanceToPoint(Point point)
+    {
+        var xVar = X - point.X;
+        var yVar = Y - point.Y;
+
+        return Math.Sqrt(Math.Pow(xVar, 2) + Math.Pow(yVar, 2));
     }
 }

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ApiService\ApiService.csproj" />
     <ProjectReference Include="..\AppHost\AppHost.csproj" />
   </ItemGroup>
 

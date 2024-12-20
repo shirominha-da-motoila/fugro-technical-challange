@@ -10,7 +10,7 @@ public class Segment
     {
         if (start.Equals(end))
         {
-            throw new InvalidOperationException("Segment points can't be equal");
+            throw new ArgumentException("Segment Points should be different.");
         }
 
         Start = start;
@@ -27,6 +27,8 @@ public class Segment
     public double YVar => End.Y - Start.Y;
 
     public double XVar => End.X - Start.X;
+
+    public double Length => Math.Sqrt(Math.Pow(XVar, 2) +  Math.Pow(YVar, 2));
 
     public bool Contains(Point point)
     {
