@@ -30,7 +30,7 @@ After a few hours, I decided to take a different approach.
 My curiosity about using .NET Aspire in a project led me to try it in this challenge. I was impressed with how easy it is to start a new project from a template and set up the entire environment to begin writing code.
 
 ### Project Architecture
-TThe base architecture was the one generated from the template:
+The base architecture was the one generated from the template:
 
 - AppHost orchestrates the solution.
 - ApiService centralizes the backend logic.
