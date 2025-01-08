@@ -10,12 +10,12 @@ public class Polyline(IEnumerable<Point> values)
         values.Select((value) => new Point(value.X, value.Y))
     );
 
-    public (double, double) CalculateOffsetAndStation(Point point)
+    public IEnumerable<(double, double)> CalculateOffsetsAndStations(Point point)
     {
         var (currentNode, nextNode) = GetFirstAndSecondNode();
         double? offset = null;
-        double station = 0;
         double segmentsLength = 0;
+        List<(double, double)>? output = null;
 
         while (nextNode is not null)
         {
@@ -36,17 +36,25 @@ public class Polyline(IEnumerable<Point> values)
 
             if (offset is null || possibleOffset < offset)
             {
-                station = segmentsLength - currentNode.Value.DistanceToPoint(point);
                 offset = possibleOffset;
+                output = [(offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(possibleIntersection))];
+
+                continue;
+            }
+
+            if (output is not null && possibleOffset == offset)
+            {
+                offset = possibleOffset;
+                output.Add((offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(possibleIntersection)));
             }
         }
 
-        if (offset is null)
+        if (output is null)
         {
             throw new InvalidPolylineException();
         }
 
-        return (offset.Value, station);
+        return output.ToHashSet();
     }
 
     public (LinkedListNode<Point>, LinkedListNode<Point>) GetFirstAndSecondNode()

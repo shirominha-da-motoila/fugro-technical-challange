@@ -38,8 +38,9 @@ public class PolylineTests
         var polyline = CreatePolyline([(0, 0), (3, 4), (6, 8)]);
         var point = new Point(3, 4);
 
-        var (offset, station) = polyline.CalculateOffsetAndStation(point);
+        var output = polyline.CalculateOffsetsAndStations(point);
 
+        var (offset, station) = Assert.Single(output);
         Assert.Equal(0, offset); 
         Assert.Equal(5, station);
     }
@@ -50,7 +51,7 @@ public class PolylineTests
         var polyline = CreatePolyline([(0, 0), (3, 4)]);
         var point = new Point(5, 5);
 
-        Assert.Throws<Polyline.InvalidPolylineException>(() => polyline.CalculateOffsetAndStation(point));
+        Assert.Throws<Polyline.InvalidPolylineException>(() => polyline.CalculateOffsetsAndStations(point));
     }
 
     [Fact]
@@ -59,8 +60,9 @@ public class PolylineTests
         var polyline = CreatePolyline([(0, 0), (3, 4), (6, 8)]);
         var point = new Point(1.5, 2);
 
-        var (offset, station) = polyline.CalculateOffsetAndStation(point);
+        var output = polyline.CalculateOffsetsAndStations(point);
 
+        var (offset, station) = Assert.Single(output);
         Assert.Equal(0, offset);
         Assert.Equal(2.5, station);
     }
@@ -71,8 +73,9 @@ public class PolylineTests
         var polyline = CreatePolyline([(0, 0), (3, 4), (6, 8)]);
         var point = new Point(6, 8);
 
-        var (offset, station) = polyline.CalculateOffsetAndStation(point);
+        var output = polyline.CalculateOffsetsAndStations(point);
 
+        var (offset, station) = Assert.Single(output);
         Assert.Equal(0, offset);
         Assert.Equal(10, station);
     }
