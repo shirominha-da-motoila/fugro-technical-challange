@@ -15,7 +15,7 @@ public class Polyline(IEnumerable<Point> values)
         var (currentNode, nextNode) = GetFirstAndSecondNode();
         double? offset = null;
         double segmentsLength = 0;
-        List<(double, double)>? output = null;
+        HashSet<(double, double)>? output = null;
 
         while (nextNode is not null)
         {
@@ -54,7 +54,7 @@ public class Polyline(IEnumerable<Point> values)
             throw new InvalidPolylineException();
         }
 
-        return output.ToHashSet();
+        return output;
     }
 
     public (LinkedListNode<Point>, LinkedListNode<Point>) GetFirstAndSecondNode()
