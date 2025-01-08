@@ -2,7 +2,7 @@
 
 ## Setup
 1. Clone the repository:
-`git clone https://github.com/shirominha-da-motoila/fugro-technical-challange.git`
+`git clone https://github.com/shirominha-da-motoila/fugro-technical-challenge.git`
 
 3. At the project root, restore the required dependencies:
 `dotnet restore`
