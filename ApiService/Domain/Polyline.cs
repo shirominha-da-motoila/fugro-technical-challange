@@ -23,11 +23,11 @@ public class Polyline(IEnumerable<Point> values)
             segmentsLength += segment.Length;
             var line = segment.Line;
             var perpendicularLine = line.GetPerpendicularLine(point);
-            var possibleIntersection = line.GetIntersection(perpendicularLine);
+            var intersection = line.GetIntersection(perpendicularLine);
             currentNode = nextNode;
             nextNode = nextNode.Next;
 
-            if (!segment.Contains(possibleIntersection))
+            if (!segment.Contains(intersection))
             {
                 continue;
             }
@@ -37,7 +37,7 @@ public class Polyline(IEnumerable<Point> values)
             if (offset is null || possibleOffset < offset)
             {
                 offset = possibleOffset;
-                output = [(offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(possibleIntersection))];
+                output = [(offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(intersection))];
 
                 continue;
             }
@@ -45,7 +45,7 @@ public class Polyline(IEnumerable<Point> values)
             if (output is not null && possibleOffset == offset)
             {
                 offset = possibleOffset;
-                output.Add((offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(possibleIntersection)));
+                output.Add((offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(intersection)));
             }
         }
 
