@@ -2,7 +2,7 @@
 @rendermode InteractiveServer
 @inject ApiClient Api
 
-<PageTitle>Fugro Technical Challange</PageTitle>
+<PageTitle>Fugro Technical Challenge</PageTitle>
 
 <h1>Polyline</h1>
 
@@ -29,14 +29,18 @@ Calculate <code>Offset</code> and <code>Station</code>
 
 	@if (Output != null)
 	{
-		<label>
-			Offset:
-			@Output.Offset
-		</label>
-		<label>
-			Station:
-			@Output.Station
-		</label>
+		@foreach (var OffsetAndStation in Output.OffsetsAndStations)
+		{
+			<label>
+				Offset:
+				@OffsetAndStation.Offset
+			</label>
+			<label>
+				Station:
+				@OffsetAndStation.Station
+			</label>
+			<hr />
+		}
 	}
 </EditForm>
 
@@ -44,7 +48,7 @@ Calculate <code>Offset</code> and <code>Station</code>
 	[SupplyParameterFromForm]
 	private CalculateOffsetAndStationInput Input { get; set; } = new CalculateOffsetAndStationInput();
 
-	private CalculateOffsetAndStationOutput? Output;
+	private CalculateOffsetsAndStationsOutput? Output;
 
 	private async Task<bool> Submit()
 	{
@@ -59,6 +63,7 @@ Calculate <code>Offset</code> and <code>Station</code>
 		MemoryStream stream = new MemoryStream();
 		await eventArgs.File.OpenReadStream().CopyToAsync(stream);
 		stream.Position = 0;
+
 		using (var reader = new StreamReader(stream, Encoding.UTF8))
 		using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 		{

@@ -10,12 +10,12 @@ public class Polyline(IEnumerable<Point> values)
         values.Select((value) => new Point(value.X, value.Y))
     );
 
-    public (double, double) CalculateOffsetAndStation(Point point)
+    public IEnumerable<(double, double)> CalculateOffsetsAndStations(Point point)
     {
         var (currentNode, nextNode) = GetFirstAndSecondNode();
         double? offset = null;
-        double station = 0;
         double segmentsLength = 0;
+        HashSet<(double, double)>? output = null;
 
         while (nextNode is not null)
         {
@@ -23,11 +23,11 @@ public class Polyline(IEnumerable<Point> values)
             segmentsLength += segment.Length;
             var line = segment.Line;
             var perpendicularLine = line.GetPerpendicularLine(point);
-            var possibleIntersection = line.GetIntersection(perpendicularLine);
+            var intersection = line.GetIntersection(perpendicularLine);
             currentNode = nextNode;
             nextNode = nextNode.Next;
 
-            if (!segment.Contains(possibleIntersection))
+            if (!segment.Contains(intersection))
             {
                 continue;
             }
@@ -36,17 +36,25 @@ public class Polyline(IEnumerable<Point> values)
 
             if (offset is null || possibleOffset < offset)
             {
-                station = segmentsLength - currentNode.Value.DistanceToPoint(point);
                 offset = possibleOffset;
+                output = [(offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(intersection))];
+
+                continue;
+            }
+
+            if (output is not null && possibleOffset == offset)
+            {
+                offset = possibleOffset;
+                output.Add((offset.Value, segmentsLength - currentNode.Value.DistanceToPoint(intersection)));
             }
         }
 
-        if (offset is null)
+        if (output is null)
         {
             throw new InvalidPolylineException();
         }
 
-        return (offset.Value, station);
+        return output;
     }
 
     public (LinkedListNode<Point>, LinkedListNode<Point>) GetFirstAndSecondNode()

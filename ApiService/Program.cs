@@ -16,12 +16,11 @@ app.MapPost("/CalculateOffsetAndStation", (CalculateOffsetAndStationInput input)
 {
     var polyline = new Polyline(input.Polyline.Select(p => new Point(p.X, p.Y)));
     var point = new Point(input.Point.X, input.Point.Y);
-    var (offset, station) = polyline.CalculateOffsetAndStation(point);
+    var offsetsAndStations = polyline.CalculateOffsetsAndStations(point);
 
-    return new CalculateOffsetAndStationOutput
+    return new CalculateOffsetsAndStationsOutput
     {
-        Offset = offset,
-        Station = station,
+        OffsetsAndStations = offsetsAndStations.Select(os => new OffSetAndStation { Offset = os.Item1, Station = os.Item2 }),
     };
 })
 .WithName("CalculateOffsetAndStation")
